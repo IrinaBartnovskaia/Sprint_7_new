@@ -29,7 +29,7 @@ class TestCourierLogin:
 
         response = requests.post(URL.LOGIN_COURIER_URL, json=body)
 
-        assert response.status_code in (400, 504)
+        assert response.status_code == 400
 
         if response.status_code == 400:
             assert response.json().get('message') == Message.LOGIN_COURIER_MISSING_FIELDS
